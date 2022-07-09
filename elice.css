@@ -9,24 +9,26 @@ a {
     text-decoration: none;
     color: #222529;
 }
-
+.inner {
+    position: relative;
+    width: 1200px;
+    margin: 0 auto;
+}
 /* HEADER */
 header:hover{
     background-color: white;
 }
 
-header .inner {
-    position: relative;
-    width: 1200px;
+header>.inner {
     height: 72px;
     padding: 0 24px;
-    margin: 0 auto;
     display: flex;
 }
 
 /* HEADER LOGO */
-header .inner .header__logo {
+header>.inner .header__logo {
     position: absolute;
+    display: block;
     top: 0;
     bottom: 0;
     margin: auto 0;
@@ -34,7 +36,7 @@ header .inner .header__logo {
     height: 32px;
 }
 
-header .inner .header__logo a img{
+header>.inner .header__logo>img{
     width: 100%;
 }
 
@@ -53,17 +55,14 @@ header .inner .header__menu .item {
     box-sizing: border-box;
     padding: 8px 10.88px;
     margin: 0 0 0 24px;
-    z-index: 1;
 }
 
 header .inner .header__menu .item:hover {
-    padding: 8px 10.88px;
-    box-sizing: border-box;
     background-color:#eaecef;
     border-radius: 3px;
 }
 
-header .inner .header__menu .item:hover a i{
+header .inner .header__menu>.item:hover a i{
     transition: 0.8s;
     transform: rotate(180deg);
 }
@@ -78,6 +77,10 @@ header .inner .header__btn {
     bottom:0;
     margin: auto;
 }
+header .inner .header__btn>div {
+    margin-left:15px;
+    height:40px;
+}
 
 header .inner .header__btn .header__btn__login {
     padding: 8px;
@@ -87,7 +90,7 @@ header .inner .header__btn .header__btn__login {
     border-radius: 3px;
 }
 
-header .inner .header__btn .header__btn__login:hover{
+header .inner .header__btn .header__btn__login a:hover{
     text-decoration-line: underline;
 }
 header .inner .header__btn .header__btn__question {
@@ -106,7 +109,7 @@ header .inner .header__btn .header__btn__question:hover {
 }
 
 /* HEADER MENU__ITEM CONTENTS */
-header .inner .header__menu .item__contents {
+header .inner .header__menu .item .item__contents {
     position: fixed;
     background-color: white;
     left: 0;
@@ -116,90 +119,75 @@ header .inner .header__menu .item__contents {
     display: none;
 }
 
-/* hover 시 .item__contents 유지가 안되는 문제 ㅠㅠ  */
-header .inner .header__menu li:hover + .item__contents {
+header .inner .header__menu .item:hover .item__contents {
     display: block;
 } 
 
-header .inner .header__menu .item__contents .item__contents__menu {
-    position:relative;
-    margin:0 auto;
-    width: 1280px;
-    padding: 0 24px;
-}
-
-header .inner .header__menu .item__contents .item__contents__menu>.inner {
+header .inner .header__menu .item .item__contents .inner {
     display: flex;
     padding: 36px 0 0 20px;
-    width: 100%;
-    height: 100%;
 }
 
-header .inner .header__menu .item__contents .item__contents__menu>.inner>li {
-    display: block;
-    width: 100%;
-}
-
-header .inner .header__menu .item__contents .item__contents__menu>.inner>li>a {
-    display: block;
+header .inner .header__menu .item .item__contents .inner>li {
     width: 400px;
-    height: 15px;
     padding: 8px 16px;
+    /* display: block; */
+}
+
+header .inner .header__menu .item .item__contents .inner>li>ul>p {
+    height: 15px;
     font-size: 14px;
     color:#222529;
+    margin-bottom: 20px;
 }
 
-header .inner .header__menu .item__contents .item__contents__menu>.inner>li>ul {
-
-}
-
-header .inner .header__menu .item__contents .item__contents__menu>.inner>li>ul>li {
-    width: 360px;
-    height: 90px;
-    border-radius: 3px;
-}
-
-header .inner .header__menu .item__contents .item__contents__menu>.inner>li>ul>li>a {
+header .inner .header__menu .item .item__contents .inner>li>ul>li {
+    display: block;
     position: relative; 
-    top: 20px;
     padding-left:10px;
+    font-size: 14px;
 }
-header .inner .header__menu .item__contents .item__contents__menu>.inner>li>ul>li:hover>a>div>div>i{
-    display:inline;
 
-}
-header .inner .header__menu .item__contents .item__contents__menu>.inner>li>ul>li:hover {
+header .inner .header__menu .item .item__contents .inner>li>ul>li:hover {
     background-color: #f8f9f2;
+    cursor: pointer;
 }
 
-header .inner .header__menu .item__contents .item__contents__menu>.inner>li>ul>li>a>img {
+.fa-arrow-right{
+    opacity: 0;
+    transition: 0.4s;
+}
+header .inner .header__menu .item .item__content .inner>li>ul>li:hover .fa-arrow-right {
+    opacity: 1;
+}
+
+header .inner .header__menu .item .item__contents>.inner>li>ul>li>img {
+    display: block;
+    float: left;
     width: 40px;
     height: 40px;
+    margin-right: 10px;
 }
 
-header .inner .header__menu .item__contents .item__contents__menu>.inner>li>ul>li>a>div {
+header .inner .header__menu .item .item__content .inner>li>ul>li>div {
+    line-height: 2.0;
     display: inline;
     position:absolute;
     left: 60px;
     width: 304px;
     font-size: 14px;
 }
-header .inner .header__menu .item__contents .item__contents__menu>.inner>li>ul>li>a>div>div {
-    height: 21px;
-}
 
-header .inner .header__menu .item__contents .item__contents__menu>.inner>li>ul>li>a>div>div>span{
+header .inner .header__menu .item .item__contents>.inner>li>ul>li>a>div>div>span{
     color:#353a3f;
 }
-header .inner .header__menu .item__contents .item__contents__menu>.inner>li>ul>li>a>div>div>i{
-    display: none;
-}
 
-header .inner .header__menu .item__contents .item__contents__menu>.inner>li>ul>li>a>div>span {
+header .inner .header__menu .item .item__content .inner .gray {
     display: block;
     height: 42px;
     color:#878295;
 }
+
 
 /* BADGES */
 header .badges {
